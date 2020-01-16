@@ -1,10 +1,10 @@
 const log = console.log
 
-// Sum All Numbers in a Range
+// Somar todos os intervalos entre um numero
 // exe: sumAll([4,1])
 //      resp = 10
 
-// simple solution
+// Solução simples, pode usar for
 
 
-  // Ok solution
+  // Solução elegante

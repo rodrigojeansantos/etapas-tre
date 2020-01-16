@@ -1,8 +1,8 @@
 const log = console.log
 
-//Sum of numbers
+//Somar dos numeros usando for
 let numbers = [1,2,3,4,5]
 
 
-//Using reduce
+//Usando reduce sem for
 let numbersR = [1,2,3,4,5,6,7];

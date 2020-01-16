@@ -1,8 +1,8 @@
 const log = console.log
 
-/* With Loops */
+/* Com Loops */
 let names = ["Jack", "Jecci", "Ram", "Tom"];
 
 
-/* Without loop */
+/* Sem loop */
 let namesMap = ["Jack", "Jecci", "Ram", "Tom"];

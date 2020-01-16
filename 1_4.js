@@ -1,8 +1,8 @@
 const log = console.log
 
-//Checking if an Array Contains a Value
+//Usar if com for para verificar valor
 var names = ["ram", "raj", "rahul"];
 
 
-//Using some
+//Usar some sem for
 var namesA = ["ram", "raj", "rahul"];
