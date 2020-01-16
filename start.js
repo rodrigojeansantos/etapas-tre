@@ -1,5 +1,5 @@
 /*
-Access branch origin/pinga_v_1 or pinga_v_1 and resolve problems
+Acessar branch origin/pinga_v_1 ou pinga_v_1  e resolver os problemas
 
 bye
 */
