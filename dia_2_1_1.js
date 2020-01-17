@@ -3,7 +3,7 @@
     mergeWords('Aqui')('não')('existe')('paz.')
 
     O resultado deve ser
-    'There is no spoon.'
+    'Aqui não existe paz.'
 */
 
 // Solução
