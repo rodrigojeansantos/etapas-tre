@@ -7,5 +7,4 @@
 */
 
 // Solução
-const mergeWords2 = string => nextString => nextString === undefined ? string : mergeWords2(`${string} ${nextString}`);
-console.log(mergeWords2('There')('is')('no')('spoon.')());
+
