@@ -6,7 +6,7 @@
 
     Depois que o numero for encontrado criar outro item com a soma dos pares e impares dos valores chutados
 
-    Depois subtrais os Pares dos Impares
+    Depois subtrair os Pares dos Impares
     exemplo abaixo
 
     {
@@ -17,6 +17,6 @@
         subtrair: 108 - 103 = 5
     }
 
-    Porem se o valor for negativo você precisa apagar os valores pares do valoresChutados e refazer os chutes somente colocando valores pares.
+    Porem se o valor do subtrair for negativo você precisa apagar os valores pares do valoresChutados e refazer os chutes somente colocando valores pares.
     Você precisa fazer isso até sua função de par retornar um valor positivo no item subtrair.
 */

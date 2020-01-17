@@ -7,7 +7,7 @@
     recalcularValor(produtos)
     esvaziar()
 
-    Pode ser criados mais funções se vc quiser.
+    Pode ser criados mais funções se vc quiser e editar as informadas acima.
 
     Objeto para ser usado
 
@@ -21,6 +21,6 @@
     ];
 
 
-    Problema... O usuário tem apenas 291 reais, você precisa remover os itens para chegar no melhor valor de compra
+    Problema... O usuário tem apenas 291 reais, você precisa remover os itens para chegar no melhor valor de compra automaticamente.    
 
 */

@@ -1,7 +1,7 @@
 /*
 Vários exercicios
 
-Criar uma função que para gerar um numero aleatorio entre 1 a 100
+Criar uma função para gerar um numero aleatorio entre 1 a 100
 
 1) Criar um array com valores pares
 2) Criar um array com valores impares
