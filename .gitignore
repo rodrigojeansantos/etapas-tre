@@ -1,0 +1,8 @@
+node_modules/
+.serverless/
+coverage/
+documentation/index.html
+documentation/documentation.json
+config/.env.app.yml
+.vscode/
+package-lock.json
