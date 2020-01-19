@@ -1,0 +1,32 @@
+{
+  "name": "etapas-tre",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "serverless offline start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigojeansantos/etapas-tre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigojeansantos/etapas-tre/issues"
+  },
+  "homepage": "https://github.com/rodrigojeansantos/etapas-tre#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.0.2",
+    "axios": "^0.19.1",
+    "core-marcenaria": "git+https://jeffersonapolinarioduratex:CqQzVdnRMsrk8bCxNZan@bitbucket.org/duratex/essential-lib.git",
+    "joi-objectid": "^3.0.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
+    "mongoose": "^5.8.7",
+    "serverless": "^1.61.2",
+    "serverless-api-gateway-xray": "^1.0.1",
+    "serverless-offline": "^5.12.1",
+    "serverless-tag-api-gateway": "^1.0.0"
+  }
+}
