@@ -7,4 +7,7 @@
 */
 
 // Solução
+const log = console.log
+const juntaStr = (...params) => params.join(' ')
 
+log(juntaStr('Aqui', 'não', 'existe', 'paz'))

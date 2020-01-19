@@ -8,7 +8,7 @@
 */
 
 
-[
+let cidades = [
     {
       "codigo": 1,
       "titulo": "Acre",
@@ -140,3 +140,44 @@
       "imagem": "http://www.estadosecapitaisdobrasil.com/wp-content/uploads/2014/09/bandeira-tocantins-105x74.png"
     }
   ]
+
+  const removeVogais = str => str.replace(/[aeiouà-ú]/gi, '')
+  const verificaPar = num => (num % 2 === 0) ? num : null
+  const alimentaArray = (arr, valor) => { if(valor !== null) arr.push(valor) }
+  const ultimoIndex = arr => arr.length
+
+
+  // 1
+  const decrescentes = cidades.reverse()
+  
+  // 2
+  let consoantes = new Array()
+  decrescentes.map(cidade => alimentaArray(consoantes, removeVogais(cidade.titulo)))
+  //console.log('Consoantes\n', consoantes)
+
+  // 3
+  let pares = new Array()
+  decrescentes.map(cidade => alimentaArray(pares, verificaPar(cidade.codigo)))
+  //console.log('Pares ', pares)
+
+  // 4
+  let codTrocado = new Array()
+  cidades.map(cidade => {  
+    if(verificaPar(cidade.codigo)) {
+      let obj = {
+        "codigo": cidade.codigo + 1 + cidades.length,
+        "titulo": cidade.titulo, 
+        "imagem": cidade.imagem
+      }
+      //console.log(obj.codigo)
+      alimentaArray(codTrocado, obj)
+    }
+    //console.log(ultimoIndex(cidades))
+  })
+
+  codTrocado.map(cidade => {
+    alimentaArray(cidades, cidade)
+    //console.log(cidade)
+  })
+
+  console.log(cidades)
