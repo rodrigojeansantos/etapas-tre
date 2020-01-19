@@ -1,14 +1,4 @@
-/* 
-    Vários exercicios aqui
-
-    1) Organize as cidades por ordem decrescente, a resposta é um novo array
-    2) Crie um array somente com consoantes de cidades
-    3) Crie um array somente com codigo pares
-    4) Crie um array trocando o codigo dos pares pelo valor anterior +1, porem nenhum codigo pode ser igual
-*/
-
-
-[
+var arr = [
     {
       "codigo": 1,
       "titulo": "Acre",
@@ -140,3 +130,46 @@
       "imagem": "http://www.estadosecapitaisdobrasil.com/wp-content/uploads/2014/09/bandeira-tocantins-105x74.png"
     }
   ]
+
+  /* 
+Vários exercicios aqui
+
+1) Organize as cidades por ordem decrescente, a resposta é um novo array, usando titulo
+2) Crie um array somente com consoantes de cidades
+3) Crie um array somente com codigo pares
+4) Crie um array trocando o codigo dos pares pelo valor anterior +1, porem nenhum codigo pode ser igual
+*/
+
+let newCity = [];
+let newCons = [];
+let newEven = [];
+
+arr.map((el)=>{
+    newCity.push(el.titulo)
+    newCity.sort()
+    newCity.reverse()
+})
+console.log(newCity)
+
+arr.map((el)=>{
+  const letters = el.titulo.split('')
+  const consoantes = letters.map((remove) => remove.replace(/[aeiouà-ú]/gi,''))
+  consoantes.map((el) => el !== '' && el !== ' ' ? newCons.push(el) : null )
+})
+
+console.log(newCons.sort())
+
+arr.map((el) => {
+  (el.codigo %2 === 0 ? newEven.push(el.codigo) : null)
+})
+
+console.log(newEven)
+
+let newCode = [];
+let codes = (el) => parseInt(el+1+arr.length) 
+
+arr.map((el) => {
+  (el.codigo %2 === 0 ? newCode.push(codes(el.codigo)) : null)
+})
+
+console.log(newCode)

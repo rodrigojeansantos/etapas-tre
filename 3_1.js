@@ -41,4 +41,3 @@ console.log('fui chamado fora do then', livros[0])
 
 
 //'Quilting For Dummies'
-

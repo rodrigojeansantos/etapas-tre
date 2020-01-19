@@ -8,3 +8,13 @@
 
 // Solução
 
+let string;
+
+const concatenador = (...parameter) => parameter.join(' ')
+
+console.log(('Aqui')+" "+('não')+" "+('existe')+" "+('paz.'))
+
+console.log(concatenador('aqui','não','existe','paz'))
+
+
+
