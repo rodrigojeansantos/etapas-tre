@@ -1,19 +1,26 @@
 const util = require('../../utils/index')
-// const status = require('../../utils/index')
+const userRepository = require('./../../repositories/user-repository')
   
-  module.exports.handler = async ({ body }) => {
-    console.log('Cheguei handler user-create')
+  module.exports.handler = async ({ body }) => {    
 
     try {      
-      // const form = JSON.parse(body)      
+       
       const code = await util.generateConfirmationCode()
-      const {comidaComAlface} = JSON.parse(body)
+      const form = JSON.parse(body)
+      const {comidaComAlface} = form
 
       if(comidaComAlface === 1){
         console.log('faço algo exclusivo')
-        return  util.status(200, 'Entrei no Step 1 com sucesso e terminei')        
+        
+        const guerreiroZ = {
+          ...form
+        }
+
+        const novoDado = await userRepository.create(guerreiroZ)                
+        await userRepository.save(novoDado)        
+        return  util.status(200, novoDado)        
       }
-      const form = {
+      const otherForm = {
         newBody:{
           age: 32,
           adreess: 'Rua abc 2212 ',
@@ -23,16 +30,7 @@ const util = require('../../utils/index')
         }
       }
 
-  
-
-      console.log('Cheguei antes de enviar a resposta')
-
-      /* return {
-        statusCode: 200,
-        body: JSON.stringify(form)
-      }*/
-
-      return  util.status(200, form)
+      return  util.status(200, otherForm)
 
     } catch (error) {
       console.log('error', error)
