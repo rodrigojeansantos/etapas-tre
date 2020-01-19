@@ -24,9 +24,11 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
     "mongoose": "^5.8.7",
+    "offline": "0.0.1",
     "serverless": "^1.61.2",
     "serverless-api-gateway-xray": "^1.0.1",
     "serverless-offline": "^5.12.1",
-    "serverless-tag-api-gateway": "^1.0.0"
+    "serverless-tag-api-gateway": "^1.0.0",
+    "start": "^5.1.0"
   }
 }

@@ -1,25 +1,39 @@
-
+const util = require('../../utils/index')
+// const status = require('../../utils/index')
   
   module.exports.handler = async ({ body }) => {
-    console.log('Cheguei aqui')
-    try {
-      body = JSON.parse(body)
-      if (!body) throw new ('Body not Found')
-      // let response = null
-      switch (body.step) {
-        case 1:
-          response = {} // ainda nada para fazer aqui
-          break
-        case 2:
-          response = await verify(body)
-          break
-        case 3:
-          response = await create(body)
-          break
-        default:
-          throw new ('Step is required')
+    console.log('Cheguei handler user-create')
+
+    try {      
+      // const form = JSON.parse(body)      
+      const code = await util.generateConfirmationCode()
+      const {comidaComAlface} = JSON.parse(body)
+
+      if(comidaComAlface === 1){
+        console.log('faço algo exclusivo')
+        return  util.status(200, 'Entrei no Step 1 com sucesso e terminei')        
       }
-      return 'new (response)'
+      const form = {
+        newBody:{
+          age: 32,
+          adreess: 'Rua abc 2212 ',
+          nick: 'Goku',
+          power: 10029,
+          code
+        }
+      }
+
+  
+
+      console.log('Cheguei antes de enviar a resposta')
+
+      /* return {
+        statusCode: 200,
+        body: JSON.stringify(form)
+      }*/
+
+      return  util.status(200, form)
+
     } catch (error) {
       console.log('error', error)
       return (error, 'Marceneiros')

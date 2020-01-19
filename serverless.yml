@@ -69,3 +69,19 @@ functions:
             path: users
             method: POST
             cors: true
+
+  CreateNewUser:
+    handler: src/functions/users/newUser-create.handler
+    events:
+      - http:
+          path: newUser
+          method: POST
+          cors: true
+  
+  CreateGoku:
+    handler: src/functions/users/goku-create.handler
+    events:
+      - http:
+          path: goku
+          method: GET
+          cors: true
