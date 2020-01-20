@@ -6,7 +6,16 @@ const userSchema = new mongoose.Schema({
   firstName: { type: String },
   lastName: { type: String },
   email: { type: String, lowercase: true },
- 
+  poder: { type: Number }
+})
+
+const userSchemaV = new mongoose.Schema({
+  firstName: { type: String },
+  lastName: { type: String },
+  email: { type: String, lowercase: true },
+  powers: { type: Number },
+  vilao: { type: Boolean }
 })
 
 module.exports.User = mongoose.model('guerreirosz', userSchema)
+module.exports.UserV = mongoose.model('viloesz', userSchemaV)
