@@ -1,36 +1,30 @@
 const util = require('../../utils/index')
 const userRepository = require('./../../repositories/user-repository')
+const schema = require('../../validators/hero-schema')
+const { JoiValidation } = require('../../validators')
+const moment = require('moment')
   
   module.exports.handler = async ({ body }) => {    
 
     try {      
-       
+      
       const code = await util.generateConfirmationCode()
       const form = JSON.parse(body)
-      const {comidaComAlface} = form
 
-      if(comidaComAlface === 1){
-        console.log('faço algo exclusivo')
-        
-        const guerreiroZ = {
-          ...form
-        }
+      // Camada de validação      
+      const validation = await JoiValidation(schema.hero, form)
+      if (!validation.isValid) return util.status(400, validation.message)
+      
+      // form.dataDeCriacao = moment().format('DD/MM/YYYY')
+            
+      const guerreiroZ = {
+        ...form
+      }        
 
         const novoDado = await userRepository.create(guerreiroZ)                
-        await userRepository.save(novoDado)        
-        return  util.status(200, novoDado)        
-      }
-      const otherForm = {
-        newBody:{
-          age: 32,
-          adreess: 'Rua abc 2212 ',
-          nick: 'Goku',
-          power: 10029,
-          code
-        }
-      }
+        await userRepository.save(novoDado)               
 
-      return  util.status(200, otherForm)
+      return  util.status(200, novoDado)
 
     } catch (error) {
       console.log('error', error)
