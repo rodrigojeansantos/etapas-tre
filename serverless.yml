@@ -1,0 +1,87 @@
+service: ${self:provider.environment.CLUB_API_PREFIX}${self:custom.environment.application.name}
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'local'}
+  region: ${opt:region, 'sa-east-1'}
+  memorySize: 512
+  timeout: 30
+  versionFunctions: false
+  environment: ${file(config/.env.app.yml):${opt:stage, 'local'}}
+  apiKeys:
+    - ${self:provider.environment.CLUB_API_PREFIX}${self:provider.environment.CLUB_API_PREFIX_APIKEYS}${self:custom.environment.application.name}-key
+  deploymentBucket:
+    name: ${self:provider.environment.CLUB_API_PREFIX}${self:provider.stage}-marceneiros-serverless-deploys
+
+package:
+  exclude:
+    - .git/**
+    - .serverless/**
+    - .editorconfig
+    - .eslintrc
+    - .gitignore
+    - package-lock.json
+    - package.json
+    - __tests__/**
+    - config/**
+    - fixtures/**
+    - docker-compose.yml
+    - Dockerfile
+    - documentation/**
+    - README.md
+    - coverage/**
+    - .dockerignore
+    - bitbucket-pipelines.yml
+
+
+plugins:
+  - serverless-offline
+  - serverless-api-gateway-xray
+  - serverless-tag-api-gateway
+
+custom:
+  environment: ${file(config/.env.app.yml)}
+  apiGatewayXray: true
+  tags:
+      departament: DIGITAL
+      project: CLUBDURATEX-API
+      brand: DURATEX
+      environment: ${opt:stage, self:provider.stage}''
+  serverless-offline:
+    host: 0.0.0.0
+    port: 4006
+    skipCacheInvalidation: true
+  authorizer:
+    default:
+      name: validateToken
+      type: token
+      identitySource: method.request.header.Authorization
+      identityValidationExpression: Bearer (.*)
+      resultTtlInSeconds: 0
+
+functions:
+ 
+  CreateUser:
+      handler: src/functions/users/user-create.handler
+      events:
+        - http:
+            path: users
+            method: POST
+            cors: true
+
+  CreateNewUser:
+    handler: src/functions/users/newUser-create.handler
+    events:
+      - http:
+          path: newUser
+          method: POST
+          cors: true
+  
+  CreateGoku:
+    handler: src/functions/users/goku-create.handler
+    events:
+      - http:
+          path: goku
+          method: GET
+          cors: true
