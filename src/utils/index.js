@@ -12,9 +12,21 @@ module.exports.getCnpjFromKeyAccess = (keyAccess) => (keyAccess.substring(6, 20)
 
 module.exports.status = (code, form) => {
     const obj = {
-        status: code,        
-        body: JSON.stringify(form)
+        statusCode: code,        
+        body: JSON.stringify({ form }) 
+        //body: JSON.stringify({ message: 'Envie os campos corretos'})
     }
 
     return obj
 }
+
+
+/*
+module.exports.status = (code, message) => {
+    const obj = {
+        statusCode: code,
+        body: JSON.stringify({ message: message})
+    }
+    return obj 
+}
+*/
