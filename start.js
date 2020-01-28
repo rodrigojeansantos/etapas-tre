@@ -1,5 +1,18 @@
-/*
-Acessar branch origin/pinga_v_1 ou pinga_v_1  e resolver os problemas
+const getFirstName = async (userId) => {
+    //let's say this takes a few seconds
+    return "first name";
+  };
+  
+  const getLastName = async (userId) => {
+    //let's say this takes a few seconds
+    return "last name";
+  };
+  
+  const getUserFullName = async (userId) => {
+    const firstName = await getFirstName(userId);
+    const lastName = await getLastName(userId);
+    console.log(`${firstName} ${lastName}`)
+    return `${firstName} ${lastName}`;
+  };
 
-bye
-*/
+  getUserFullName('1233123')
