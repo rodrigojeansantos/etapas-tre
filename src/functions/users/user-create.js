@@ -13,9 +13,18 @@ const moment = require('moment')
 
       // Camada de validação      
       const validation = await JoiValidation(schema.hero, form)
-      if (!validation.isValid) return util.status(400, validation.message)
-      
-      // form.dataDeCriacao = moment().format('DD/MM/YYYY')
+      if (!validation.isValid) {
+        return util.status(400, validation.message)
+      }
+
+      // ({
+      //   statusCode: 422,
+      //   body: JSON.stringify({ message: 'Envie os campos corretos'})
+      //   }
+      // )
+
+
+      //form.dataDeCriacao = moment().format('DD/MM/YYYY')
             
       const guerreiroZ = {
         ...form
@@ -23,7 +32,7 @@ const moment = require('moment')
 
         const novoDado = await userRepository.create(guerreiroZ)                
         await userRepository.save(novoDado)               
-
+        console.log("isso não deve aparecer")
       return  util.status(200, novoDado)
 
     } catch (error) {

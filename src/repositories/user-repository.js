@@ -1,9 +1,11 @@
 const { MongoConnection, BaseRepository } = require('core-marcenaria/connectors/mongodb')
-const { UserClubSchema } = require('core-marcenaria/connectors/mongodb/schemas/user-club')
+//const { guerreirosZSchema } = require('core-marcenaria/connectors/mongodb/schemas/user-club')
+
+const { guerreirosZSchema } = require('core-marcenaria/connectors/mongodb/schemas/guerreiros-z')
 
 class UserRepository extends BaseRepository {
   constructor () {
-    super('guerreirosz', UserClubSchema, new MongoConnection(process.env.CLUB_MONGODB))
+    super('guerreirosz', guerreirosZSchema, new MongoConnection(process.env.CLUB_MONGODB))
   }
 }
 

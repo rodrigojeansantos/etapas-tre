@@ -18,6 +18,7 @@ const raça = Joi.string().valid(
 ).required()
 
 module.exports.hero = Joi.object().keys({  
+  data: Joi.date(),
   nome: Joi.string().required(),
   planetaDeOrigem: Joi.string().required(),  
   raça,

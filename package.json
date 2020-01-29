@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rodrigojeansantos/etapas-tre#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.0",
+    "@meanie/joi-moment": "^1.1.0",
     "axios": "^0.19.1",
     "core-marcenaria": "git+https://jeffersonapolinarioduratex:CqQzVdnRMsrk8bCxNZan@bitbucket.org/duratex/essential-lib.git",
     "joi-objectid": "^3.0.1",
