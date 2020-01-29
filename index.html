@@ -12,29 +12,66 @@
       <div>First: <span id="first">...</span></div>
       <div>Second: <span id="second">...</span></div>
       <div>Third: <span id="third">...</span></div>
-			<div>After: <span id="after">...</span></div>
+	    <div>After: <span id="after">...</span></div>
 			
 
 		<script>
 			const timeout = (milliseconds, id) => {
-				return new Promise((resolve) => {
+			  return new Promise((resolve) => {
 					setTimeout(() => {
 						document.getElementById(id).innerHTML = "Done!";
 						resolve();
 					}, milliseconds);
 				});
-			};
-
-			document.getElementById("before").innerHTML = "Done!";
-
-			// ["first", "second", "third"].forEach(async (id) => { await timeout(2000, id); });
-			(async () => {				
-				for(const item of ["first", "second", "third"]) {					
+      };
+      
+      const elementsDone  = async () => {
+        for(const item of ["first", "second", "third"]) {					
 					let time = Math.floor(Math.random() * (4000 + 1000) + 1000);
 					console.log(`${item}: ${time}`)					
 					timeout(time, item);
 					// await timeout(time, item);
 				}
+      }
+
+			document.getElementById("before").innerHTML = "Done!";
+
+			// ["first", "second", "third"].forEach(async (id) => { await timeout(2000, id); });
+			// (async () => {
+      ( async() => {        
+        await elementsDone()
+        
+        //Questions
+        let expr = (99, 88, 77)
+        console.log(expr)
+
+        // same thing
+        const mul_a = (a, b) => a * b
+        // OR
+        function mul_b(a, b) {
+            return a * b
+        }
+        // OR
+        const mul_c = function(a, b) {
+            return a * b
+        }
+
+        const mul_d = new Function("a", "b", "return a * b")
+
+        const arr = {
+          0: 99,
+          1: 88,
+          2: 77,
+          length: 3
+        }
+
+        console.log(arr)
+
+        console.log(
+          (new Date).getDay()
+          (new Date).getMonth()
+          (new Date).getYear()
+        )
 
 			})();
 
